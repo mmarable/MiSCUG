@@ -11,3 +11,6 @@ OSDResultsTally.ps1
 MiSCUG_20190111 v 3.0.zip
 - Sample task sequence used in the demo
 
+MiSCUG - Demo Power BI Report.pbix
+- Demo Power BI report
+
