@@ -8,3 +8,6 @@ OSDResultsTally_0.0.csv
 OSDResultsTally.ps1
 - PowerShell script for gathering and uploading OSD build data
 
+MiSCUG_20190111 v 3.0.zip
+- Sample task sequence used in the demo
+
