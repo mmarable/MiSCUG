@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UIpp Title="UI++" Icon="UI++2.ico" DialogIcons="Yes">
+
+    <Software>
+
+        <Application Id="D30B903C-95ED-4AC9-8256-EFADD02FAFF1" Label="7-Zip 18.03"      Name="7-Zip 18.03 (x64 edition)" />
+        <Application Id="D30B903C-95ED-4AC9-8256-EFADD02FAFF2" Label="MDT 8450"         Name="Microsoft Deployment Toolkit (6.3.8450.1000)" />
+        <Application Id="D30B903C-95ED-4AC9-8256-EFADD02FAFF3" Label="Power BI Desktop" Name="Microsoft Power BI Desktop (x64)" />
+        <Application Id="D30B903C-95ED-4AC9-8256-EFADD02FAFF4" Label="XML Notepad 2007" Name="XML Notepad 2007" />
+        
+        <Package Id="9EBF5537-6A81-4651-86D4-4E51C8899F41" Label="Notepad++"                     PkgID="PS100030" ProgramName="Install - Notepad++" />
+        <Package Id="9EBF5537-6A81-4651-86D4-4E51C8899F42" Label="Notepad2"                      PkgID="PS100031" ProgramName="Install - Notepad2 (64bit)" />
+        <Package Id="9EBF5537-6A81-4651-86D4-4E51C8899F43" Label="Visual Studio Code (Insiders)" PkgID="PS100034" ProgramName="Install - Visual Studio Code (Insiders)" />
+        <Package Id="9EBF5537-6A81-4651-86D4-4E51C8899F44" Label="Visual Studio Code (CB)"       PkgID="PS100034" ProgramName="Install - Visual Studio Code (CB)" />
+        <Package Id="9EBF5537-6A81-4651-86D4-4E51C8899F45" Label="Windows ADK 1803"              PkgID="PS100036" ProgramName="Install - ADK 1803" />
+        
+    </Software>
+
+
+
+    <Actions>
+	
+        <Action Type="UserAuth" Title="User Authentication" Domain="Neptune.lab" MaxRetryCount="5" Group="OSD Group" GetGroups="True" />
+	
+        <!--
+        <Action Type="Info" Name="myInfo" Title="Welcome" Image="my.png" ShowCancel="True">
+            <![CDATA[Welcome %XAuthenticatedUser%]]>
+        </Action>
+        -->
+        <!--
+        <Action Type="DefaultValues" ValueTypes="All" ShowProgress="True">
+            <Text Type="OS" Value="Retrieving Operating System information" />
+            <Text Type="TPM" Value="Retrieving TPM information" />
+            <Text Type="Net" Value="Retrieving Networking information" />
+            <Text Type="VM" Value="Retrieving Virtualization information" />
+            <Text Type="Asset" Value="Retrieving Asset information" />
+            <Text Type="Domain" Value="Retrieving Domain information" />
+        </Action>
+        -->
+        <!--
+        <Action Type="Preflight" Title="Preflight checks" ShowBack="True">
+            <Check Text="WLAN Disconnected" CheckCondition='"%XWLANDisconnected%" = "True"' />
+            <Check Text="Not on battery" CheckCondition='"%XOnBattery%" = "False"' />
+            <Check Text="Minimum memory >1GB" CheckCondition='%XHWMemory% >= 1024' />
+            <Check Text="CPU Supports Windows 8+" CheckCondition='%XCPUPAE% AND %XCPUNX% AND %XCPUSSE2% = True' />
+        </Action>
+        -->
+
+        <Action Type="Input" Name="ClientSetupInput" Title="Client Setup" ShowBack="True">
+            <TextInput Prompt="Computer Name" Hint="Please either confirm or change the computer name." Question="Please enter a computer name." Variable="NewComputerName" Default="%_SMSTSMachineName%"/>
+        <ChoiceInput Variable="OSName" AlternateVariable="OSVar" Question="Please select the OS for this system" Required="True">
+            <Choice Option="1 Windows 10 1607 (64bit)" Value="Windows 10 1607 (64bit)" AlternateValue="Win10-1607.64" />
+            <Choice Option="2 Windows 10 1703 (64bit)" Value="Windows 10 1703 (64bit)" AlternateValue="Win10-1703.64" />
+            <Choice Option="3 Windows 10 1709 (64bit)" Value="Windows 10 1709 (64bit)" AlternateValue="Win10-1709.64" />
+            <Choice Option="4 Windows 10 1803 (64bit)" Value="Windows 10 1803 (64bit)" AlternateValue="Win10-1803.64" />
+            <Choice Option="5 Windows 10 RS5 (64bit)" Value="Windows 10 RS5 (64bit)" AlternateValue="Win10-RS5.64"  Condition='"%XAuthenticatedUser%" = "supermm"'/>
+        </ChoiceInput>
+            <CheckboxInput Variable="USMTBackup" Question="Use USMT to back up this system" CheckedValue="TRUE" UncheckedValue="False" Default="False"/>
+            <CheckboxInput Variable="USMTRestore" Question="Use USMT to restore this system" CheckedValue="TRUE" UncheckedValue="False" Default="False"/>
+        </Action>
+
+        <!-->
+        <Action Type="Input" Name="USMTDemo" Title="USMT Options" ShowBack="True">
+            <CheckboxInput Variable="USMTBackup" Question="Use USMT to back up this system" CheckedValue="TRUE" UncheckedValue="False" Default="False"/>
+            <CheckboxInput Variable="USMTRestore" Question="Use USMT to restore this system" CheckedValue="TRUE" UncheckedValue="False" Default="False"/>
+        </Action>
+        -->
+		
+
+	<!-->
+    <Action Type="AppTree" Title="Please choose your software">
+        <SoftwareSets>
+            <Set Name="Default">
+                <SoftwareGroup Id="952025F7-BC5D-4D1C-960C-002B77323479" Label="Applications">
+                    <SoftwareRef Id="D30B903C-95ED-4AC9-8256-EFADD02FAFF1" />
+                    <SoftwareRef Id="D30B903C-95ED-4AC9-8256-EFADD02FAFF2" />
+                    <SoftwareRef Id="D30B903C-95ED-4AC9-8256-EFADD02FAFF3" />
+                    <SoftwareRef Id="D30B903C-95ED-4AC9-8256-EFADD02FAFF4" />
+                </SoftwareGroup>
+                <SoftwareGroup Id="07827D9D-8B57-444E-AC86-08D6DF527DC9" Label="Packages">
+                    <SoftwareRef Id="9EBF5537-6A81-4651-86D4-4E51C8899F41" />
+                    <SoftwareRef Id="9EBF5537-6A81-4651-86D4-4E51C8899F42" />
+                    <SoftwareRef Id="9EBF5537-6A81-4651-86D4-4E51C8899F43" />
+                    <SoftwareRef Id="9EBF5537-6A81-4651-86D4-4E51C8899F44" />
+                    <SoftwareRef Id="9EBF5537-6A81-4651-86D4-4E51C8899F45" />
+                </SoftwareGroup>
+            </Set>
+        </SoftwareSets>
+    </Action>
+    -->
+	
+	<Action Type="TSVar" Name="OSDComputerName">%NewComputerName%</Action> 
+
+    <!-->
+	<Action Type="Info" Name="SystemName" Title="Welcome %XAuthenticatedUser%">
+      <![CDATA[The name of this system will be <b>%NewComputerName%</b>. <br> It will be built as <b>%OSName%</b>)]]>
+    </Action>
+    -->
+
+
+  </Actions>
+
+
+
+
+
+</UIpp>
+
+
