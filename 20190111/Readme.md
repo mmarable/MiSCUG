@@ -14,3 +14,6 @@ MiSCUG_20190111 v 3.0.zip
 MiSCUG - Demo Power BI Report.pbix
 - Demo Power BI report
 
+UI++.xml
+- UI++ configuration used in the task sequence
+
