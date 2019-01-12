@@ -17,3 +17,10 @@ MiSCUG - Demo Power BI Report.pbix
 UI++.xml
 - UI++ configuration used in the task sequence
 
+MiSCUG_OSD-Stats_PowerBI_20180111_v5.pptx
+- PowerPoint Slide Deck
+
+Function - Pull Failed Action from SMSTS Log.ps1
+- Function to pull the failed action from the SMSTS log for ConfigMgr 1806 and prior
+
+
